@@ -83,6 +83,32 @@ public class UsersController : ControllerBase
 
 ---
 
+## 🌀 3. 使用 cURL 測試 API 的基本語法
+
+### 📌 常見指令格式
+```bash
+# GET 請求示例
+curl -X GET \n  "https://api.example.com/users" \n  -H "X-API-Key: your-secret-api-key"
+
+# POST 請求示例
+curl -X POST \n  "https://api.example.com/users" \n  -H "X-API-Key: your-secret-api-key" \n  -H "Content-Type: application/json" \n  -d '{"name":"John", "email":"john@example.com"}'
+```
+
+### 📌 常用參數說明
+| 參數 | 說明 |
+|------|------|
+| `-X` | 指定 HTTP 方法 (GET/POST/PUT/DELETE) |
+| `-H` | 添加 HTTP Headers (如 API Key、Content-Type) |
+| `-d` | 設定 POST/PUT 請求的 Body 內容 |
+| `--verbose` | 顯示詳細的請求/回應資訊 (用於除錯) |
+
+### ⚠️ 安全注意事項
+- **不要在公開的腳本中硬碼 API Key**，應使用環境變數（如 `export API_KEY=your-secret-key`）
+- 使用 `--insecure` 時要特別小心（會忽略 SSL 憑證驗證）
+- 敏感資料建議使用 `--data-binary` 來傳輸二進位資料
+
+---
+
 ## 🔑 總結安全流程
 
 當一個請求到達 API 時，安全檢查的順序通常是：
